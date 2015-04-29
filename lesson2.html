@@ -1,6 +1,3 @@
-import webapp2
-
-form = """
 <form>
 	<p>Just an input box.</p>
 	<input>
@@ -16,13 +13,5 @@ form = """
 	<input name="q">
 	<input type=submit>
 </form>
-"""
 
-class MainPage(webapp2.RequestHandler):
-	def get(self):
-		self.response.headers['Content-Type'] = 'text/html'
-		self.response.write(form)
-
-app = webapp2.WSGIApplication([
-		('/', MainPage),
-	], debug=True)
+	
