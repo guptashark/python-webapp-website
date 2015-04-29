@@ -20,7 +20,6 @@ form = """
 
 class MainPage(webapp2.RequestHandler):
 	def get(self):
-#		self.response.headers['Content-Type'] = 'text/html' Google app engine does this by default
 		self.response.write(form)
 
 app = webapp2.WSGIApplication([
