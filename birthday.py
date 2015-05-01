@@ -5,15 +5,15 @@ form = """
 <form method="post" action="/birthday">
 	<label>
 		Month
-		<input type="text" name="month">
+		<input type="text" name="month" value=%(month)s>
 	</label>
 	<label>
 		Day
-		<input type="text" name="day">
+		<input type="text" name="day" value=%(day)s>
 	</label>
 	<label>
 		Year
-		<input type="text" name="year">
+		<input type="text" name="year" value=%(year)s>
 	</label>
 	<div style="color: red">%(error)s</div>
 	<br>
@@ -34,11 +34,6 @@ months = [
 	'October',
 	'November',
 	'December']
-
-# The bad_date thing is a hacky error message solution. 
-bad_date = """
-<div style="color: red">That is not a valid date.</div>
-"""
 
 def valid_month(month):
 	if (month):
@@ -64,17 +59,20 @@ def valid_year(year):
 
 
 class Birthday(webapp2.RequestHandler):
-	def write_form(self, error=""):
-		self.response.write(form % {"error": error})
+	def write_form(self, error="", month="", day="", year=""):
+		self.response.write(form % {"error": error, 
+									"month": month, 
+									"day": day, 
+									"year": year})
 
 	def get(self):
 		self.write_form()
 
 	def post(self):
-		month = valid_month(self.request.get("month"))
-		day = valid_day(self.request.get("day"))
-		year = valid_year(self.request.get("year"))
-		if(month and day and year):
+		month = self.request.get("month")
+		day = self.request.get("day")
+		year = self.request.get("year")
+		if(valid_month(month) and valid_day(day) and valid_year(year)):
 			self.response.write("ALL FINE")
 		else:
-			self.write_form("That is not a valid date.") 
+			self.write_form("That is not a valid date.", month, day, year) 
