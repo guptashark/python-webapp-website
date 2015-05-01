@@ -1,5 +1,5 @@
 import webapp2
-
+from birthday import Birthday
 form = """
 <form>
 	<p>Just an input box.</p>
@@ -111,16 +111,9 @@ class PassWord(webapp2.RequestHandler):
 		self.response.write("The password is: ")
 		self.response.write(q)
 
-class Birthday(webapp2.RequestHandler):
-	def post(self):
-		month = self.request.get("month")
-		day = self.request.get("day")
-		year = self.request.get("year")
-		self.response.write("ALL FINE")
-
 app = webapp2.WSGIApplication([
 		('/', MainPage),
 		('/testhandler', TestHandler),
 		('/password', PassWord),
 		('/birthday', Birthday)
-	], debug=True)
+], debug=True)
