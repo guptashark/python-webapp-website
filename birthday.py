@@ -1,4 +1,25 @@
-from handler import Handler
+import webapp2
+
+form = """
+<p> When is your birthday?</p>
+<form method="post" action="/birthday">
+	<label>
+		Month
+		<input type="text" name="month">
+	</label>
+	<label>
+		Day
+		<input type="text" name="day">
+	</label>
+	<label>
+		Year
+		<input type="text" name="year">
+	</label>
+	<div style="color: red">%(error)s</div>
+	<br>
+	<input type="submit">
+</form>
+"""
 
 months = [	
 	'January',
@@ -42,19 +63,18 @@ def valid_year(year):
 	return None
 
 
-class Birthday(Handler):
-#	def write_form(error=""):
-#	self.render("birthday.html", 
+class Birthday(webapp2.RequestHandler):
+	def write_form(self, error=""):
+		self.response.write(form % {"error": error})
 
 	def get(self):
-		self.render("birthday.html")
+		self.write_form()
 
 	def post(self):
 		month = valid_month(self.request.get("month"))
 		day = valid_day(self.request.get("day"))
 		year = valid_year(self.request.get("year"))
 		if(month and day and year):
-			self.write("ALL FINE")
+			self.response.write("ALL FINE")
 		else:
-			self.render("birthday.html")
-			self.write(bad_date)  # Hacky solution to get error message. 
+			self.write_form("That is not a valid date.") 
