@@ -1,5 +1,7 @@
+import os
 import webapp2
 from birthday import Birthday
+
 form = """
 <form>
 	<p>Just an input box.</p>
