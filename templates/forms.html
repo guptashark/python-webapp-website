@@ -14,19 +14,19 @@
 	<input type=submit>
 </form>
 
-<p>A form whose action is to submit the text to TestHandler instead of google search.</p>
-<form action="/testhandler">
+<p>Enter something in the box and hit submit to see the GET request.</p>
+<form action="/showrequest">
 	<input name="q">
 	<input type="submit">
 </form>
 
-<p>A form that does the same action as above, but uses a post method instead of get.</p>
-<form method="post" action="/testhandler">
+<p>Enter something in the box and hit submit to see the POST request.</p>
+<form method="post" action="/showrequest">
 	<input name="q">
 	<input type="submit">
 </form>
 
-<p>A form that has a type different from text - it has a type of password.</p>
+<p>A form that has a type of password.</p>
 <form action="/password">
 	<input type="password" name="q">
 	<input type="submit">
