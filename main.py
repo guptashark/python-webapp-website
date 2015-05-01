@@ -4,15 +4,19 @@ from showrequest import ShowRequest
 from handler import Handler
 from password import Password
 from birthday import Birthday
+from sandbox import Sandbox
 
 class MainPage(Handler):
 	def get(self):
-		self.render("forms.html")
-		self.render("birthday.html")		
-
+#		self.render("forms.html")
+#		self.render("birthday.html")		
+		self.render("menubar.html")
+		self.render("home.html")
+		
 app = webapp2.WSGIApplication([
 		('/', MainPage),
 		('/showrequest', ShowRequest),
 		('/password', Password),
-		('/birthday', Birthday)
+		('/birthday', Birthday),
+		('/sandbox', Sandbox)
 ], debug=True)
