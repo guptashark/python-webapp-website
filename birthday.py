@@ -76,6 +76,10 @@ class Birthday(webapp2.RequestHandler):
 		day = escape_html(self.request.get("day"))
 		year = escape_html(self.request.get("year"))
 		if(valid_month(month) and valid_day(day) and valid_year(year)):
-			self.response.write("ALL FINE")
+			self.redirect("/thanks")
 		else:
 			self.write_form("That is not a valid date.", month, day, year) 
+
+class Thanks(webapp2.RequestHandler):
+	def get(self):
+		self.response.write("All Fine")

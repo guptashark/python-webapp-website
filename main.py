@@ -4,6 +4,7 @@ from showrequest import ShowRequest
 from handler import Handler
 from password import Password
 from birthday import Birthday
+from birthday import Thanks
 from sandbox import Sandbox
 
 class MainPage(Handler):
@@ -18,5 +19,6 @@ app = webapp2.WSGIApplication([
 		('/showrequest', ShowRequest),
 		('/password', Password),
 		('/birthday', Birthday),
-		('/sandbox', Sandbox)
+		('/sandbox', Sandbox),
+		('/thanks', Thanks)
 ], debug=True)
