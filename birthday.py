@@ -1,4 +1,5 @@
 import webapp2
+import cgi
 
 form = """
 <p> When is your birthday?</p>
@@ -57,6 +58,8 @@ def valid_year(year):
 			return mYear
 	return None
 
+def escape_html(s):
+	return cgi.escape(s, quote = True)
 
 class Birthday(webapp2.RequestHandler):
 	def write_form(self, error="", month="", day="", year=""):
@@ -69,9 +72,9 @@ class Birthday(webapp2.RequestHandler):
 		self.write_form()
 
 	def post(self):
-		month = self.request.get("month")
-		day = self.request.get("day")
-		year = self.request.get("year")
+		month = escape_html(self.request.get("month"))
+		day = escape_html(self.request.get("day"))
+		year = escape_html(self.request.get("year"))
 		if(valid_month(month) and valid_day(day) and valid_year(year)):
 			self.response.write("ALL FINE")
 		else:
