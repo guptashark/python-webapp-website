@@ -6,6 +6,7 @@ from password import Password
 from birthday import Birthday
 from birthday import Thanks
 from sandbox import Sandbox
+from rot13 import Rot13
 
 class MainPage(Handler):
 	def get(self):
@@ -20,5 +21,6 @@ app = webapp2.WSGIApplication([
 		('/password', Password),
 		('/birthday', Birthday),
 		('/sandbox', Sandbox),
-		('/thanks', Thanks)
+		('/thanks', Thanks),
+		('/rot13', Rot13)
 ], debug=True)
