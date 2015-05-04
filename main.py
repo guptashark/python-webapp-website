@@ -7,6 +7,7 @@ from birthday import Birthday
 from birthday import Thanks
 from sandbox import Sandbox
 from rot13 import Rot13
+from signup import SignUp
 
 class MainPage(Handler):
 	def get(self):
@@ -22,5 +23,6 @@ app = webapp2.WSGIApplication([
 		('/birthday', Birthday),
 		('/sandbox', Sandbox),
 		('/thanks', Thanks),
-		('/rot13', Rot13)
+		('/rot13', Rot13),
+		('/signup', SignUp)
 ], debug=True)
