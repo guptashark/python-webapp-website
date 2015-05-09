@@ -8,6 +8,7 @@ from birthday import Thanks
 from sandbox import Sandbox
 from rot13 import Rot13
 from signup import SignUp
+from shoppinglist import ShoppingList
 
 class MainPage(Handler):
 	def get(self):
@@ -19,6 +20,7 @@ class MainPage(Handler):
 app = webapp2.WSGIApplication([
 		('/', MainPage),
 		('/showrequest', ShowRequest),
+		('/shoppinglist', ShoppingList),
 		('/password', Password),
 		('/birthday', Birthday),
 		('/sandbox', Sandbox),
