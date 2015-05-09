@@ -1,5 +1,13 @@
-import webapp2
+from handler import Handler
 
-class ShoppingList(webapp2.RequestHandler):
+html_form = """
+<form>
+	<h2>Add a Food</h2>
+	<input type="text" name="food">
+	<button>Add</button>
+</form>
+"""
+
+class ShoppingList(Handler):
 	def get(self):
-		self.response.write("This is a shopping List.")
+		self.write(html_form)
