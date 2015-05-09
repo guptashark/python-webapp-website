@@ -9,6 +9,7 @@ from sandbox import Sandbox
 from rot13 import Rot13
 from signup import SignUp
 from shoppinglist import ShoppingList
+from fizzbuzz import FizzBuzz
 
 class MainPage(Handler):
 	def get(self):
@@ -24,6 +25,7 @@ app = webapp2.WSGIApplication([
 		('/password', Password),
 		('/birthday', Birthday),
 		('/sandbox', Sandbox),
+		('/fizzbuzz', FizzBuzz),
 		('/thanks', Thanks),
 		('/rot13', Rot13),
 		('/signup', SignUp)

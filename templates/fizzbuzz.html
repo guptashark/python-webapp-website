@@ -1,0 +1,27 @@
+<form>
+	<h2>Enter an integer grater than 20</h2>
+	<input type="text" name="n">
+	<input type="submit">
+	
+	{% if n == 1 %}
+		n equals 1
+	{% else %}
+		n does not equal 1
+	{% endif %}
+
+	<ol>
+		{% for x in range(1, n+1) %}
+			<li>
+				{% if x % 15 == 0 %}
+					FizzBuzz
+				{% elif x % 5 == 0 %}
+					Buzz
+				{% elif x % 3 == 0 %}
+					Fizz
+				{% else %}
+					{{ x }}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ol>
+</form>
