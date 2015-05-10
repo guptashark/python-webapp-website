@@ -10,6 +10,7 @@ from rot13 import Rot13
 from signup import SignUp
 from shoppinglist import ShoppingList
 from fizzbuzz import FizzBuzz
+from playground import Playground
 
 class MainPage(Handler):
 	def get(self):
@@ -28,5 +29,6 @@ app = webapp2.WSGIApplication([
 		('/fizzbuzz', FizzBuzz),
 		('/thanks', Thanks),
 		('/rot13', Rot13),
-		('/signup', SignUp)
+		('/signup', SignUp),
+		('/playground', Playground)
 ], debug=True)
